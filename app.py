@@ -68,11 +68,13 @@ def create_app():
 
     return app
 
+# Create Flask application instance for Vercel
+app = create_app()
+
 if __name__ == "__main__":
-    app = create_app()
     print("===============================================================")
     print("  SignAI — AI-Powered Multilingual Sign Language System")
     print("  Server running at: http://127.0.0.1:5000")
-    print("  Open this URL in your web browser to access the dashboard.")
     print("===============================================================")
-    app.run(host="127.0.0.1", port=5000, debug=False)
+
+    app.run(host="0.0.0.0", port=5000, debug=False)
