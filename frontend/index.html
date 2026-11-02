@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignAI — Sign. Translate. Connect.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Fixed Navy Sidebar -->
+    <aside class="sidebar">
+      <div class="brand-section">
+        <div class="brand-icon">
+          <!-- Gesture / AI Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+            <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path>
+            <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
+            <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <h1>Sign<span>AI</span></h1>
+          <div class="brand-tagline">Sign. Translate. Connect.</div>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <div class="nav-item">
+          <a class="nav-link active" data-view="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            <span class="nav-text">Dashboard</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" data-view="camera">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+            <span class="nav-text">Live Camera</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" data-view="upload">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <span class="nav-text">Image Upload</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" data-view="dataset">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+            <span class="nav-text">Dataset Manager</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" data-view="translation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+            <span class="nav-text">Translation</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" data-view="history">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="nav-text">History</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" data-view="model">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a8 8 0 0 0-8 8c0 3.37 2.1 6.25 5.09 7.42L9 22h6l-.09-4.58C17.9 16.25 20 13.37 20 10a8 8 0 0 0-8-8z"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
+            <span class="nav-text">Model Status</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" data-view="settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="nav-text">Settings</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div>SignAI Prototype v1.0</div>
+        <div style="color: var(--accent-cyan); margin-top: 2px;">BTech AI & DS Project</div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <h2 class="page-title" id="page-title">Dashboard Overview</h2>
+        </div>
+
+        <div class="header-right">
+          <!-- Backend Status -->
+          <div class="status-pill online" id="backend-status-pill">
+            <span class="status-dot"></span>
+            <span id="backend-status-text">Backend: Online</span>
+          </div>
+
+          <!-- Model Status -->
+          <div class="status-pill warning" id="model-status-pill">
+            <span class="status-dot"></span>
+            <span id="model-status-text">Model: Checking...</span>
+          </div>
+
+          <!-- Target Language -->
+          <select class="lang-select" id="global-lang-select" title="Target Language">
+            <option value="ta">Tamil (தமிழ்)</option>
+            <option value="en">English (US)</option>
+          </select>
+
+          <!-- Download ZIP Button -->
+          <a href="/api/download-project" class="btn btn-primary btn-sm" download="SignAI_FullStack_Website.zip" title="Download Complete Website (.ZIP)" style="text-decoration: none; display: flex; align-items: center; gap: 6px; padding: 6px 14px; font-weight: 600; border-radius: 8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download ZIP</span>
+          </a>
+
+          <!-- Theme Toggle -->
+          <button class="icon-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme">
+            <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content Area with 8 Views -->
+      <main class="content-area">
+        
+        <!-- ================= VIEW 1: DASHBOARD ================= -->
+        <section id="view-dashboard" class="view-section active">
+          <!-- Stat Cards -->
+          <div class="grid-4">
+            <div class="stat-card">
+              <div class="stat-icon cyan">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" id="dash-total-detections">0</div>
+                <div class="stat-label">Total Detections</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 3.37 2.1 6.25 5.09 7.42L9 22h6l-.09-4.58C17.9 16.25 20 13.37 20 10a8 8 0 0 0-8-8z"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" style="font-size: 1.15rem;" id="dash-model-status">Checking</div>
+                <div class="stat-label">Active Model</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon emerald">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" id="dash-supported-classes">0</div>
+                <div class="stat-label">Supported Signs</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon amber">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" id="dash-dataset-samples">0</div>
+                <div class="stat-label">Dataset Images</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Pipeline -->
+          <div class="grid-sidebar">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Recognition & Translation Pipeline</h3>
+                  <div class="card-subtitle">End-to-End AI Multilingual Workflow</div>
+                </div>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="background: rgba(59, 130, 246, 0.2); color: var(--primary-blue); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</span>
+                    <div>
+                      <div style="font-weight: 600;">Input Stream</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">Real-time webcam or image upload</div>
+                    </div>
+                  </div>
+                  <span class="badge badge-camera">640x480 RGB</span>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="background: var(--accent-cyan-dim); color: var(--accent-cyan); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</span>
+                    <div>
+                      <div style="font-weight: 600;">MediaPipe Tasks Feature Extraction</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">21 3D Landmarks &bull; Scale & wrist invariant (63 features)</div>
+                    </div>
+                  </div>
+                  <span class="badge badge-upload">Invariant Vector</span>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</span>
+                    <div>
+                      <div style="font-weight: 600;">Classifier Inference</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">Scikit-Learn RandomForest with confidence estimation</div>
+                    </div>
+                  </div>
+                  <span class="badge badge-manual">Scikit-Learn</span>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">4</span>
+                    <div>
+                      <div style="font-weight: 600;">Multilingual Translation & TTS</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">Tamil / English dual-tier dictionary & Web Speech synthesis</div>
+                    </div>
+                  </div>
+                  <span class="badge badge-camera">தமிழ் &bull; TTS</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Start Shortcuts -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Quick Actions</h3>
+                  <div class="card-subtitle">Launch Core Modules</div>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <button class="btn btn-primary" onclick="window.app.switchView('camera')" style="width: 100%; justify-content: flex-start; padding: 12px 16px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+                  <span>Start Live Webcam</span>
+                </button>
+
+                <button class="btn btn-secondary" onclick="window.app.switchView('upload')" style="width: 100%; justify-content: flex-start; padding: 12px 16px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                  <span>Upload Sign Image</span>
+                </button>
+
+                <button class="btn btn-secondary" onclick="window.app.switchView('dataset')" style="width: 100%; justify-content: flex-start; padding: 12px 16px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                  <span>Manage Training Dataset</span>
+                </button>
+
+                <button class="btn btn-secondary" onclick="window.app.switchView('model')" style="width: 100%; justify-content: flex-start; padding: 12px 16px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 3.37 2.1 6.25 5.09 7.42L9 22h6l-.09-4.58C17.9 16.25 20 13.37 20 10a8 8 0 0 0-8-8z"/></svg>
+                  <span>Check Model & Train</span>
+                </button>
+
+                <a href="/api/download-project" class="btn btn-secondary" download="SignAI_FullStack_Website.zip" style="width: 100%; justify-content: flex-start; padding: 12px 16px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Download Complete Website (.ZIP)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Recognitions Preview -->
+          <div class="card" style="margin-top: 24px;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Recent Recognitions</h3>
+                <div class="card-subtitle">Real Events Recorded to SQLite Database</div>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="window.app.switchView('history')">View Full History</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>Source</th>
+                    <th>Sign Detected</th>
+                    <th>Confidence</th>
+                    <th>Translation</th>
+                  </tr>
+                </thead>
+                <tbody id="dash-recent-history-body">
+                  <tr>
+                    <td colspan="5" class="empty-state">No recognition events recorded yet. Start camera or upload an image.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 2: LIVE CAMERA ================= -->
+        <section id="view-camera" class="view-section">
+          <div class="grid-sidebar">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Live Video Recognition Stream</h3>
+                  <div class="card-subtitle">Browser MediaDevices &bull; Real Frame Processing</div>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-primary" id="start-cam-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span>Start Camera</span>
+                  </button>
+                  <button class="btn btn-danger" id="stop-cam-btn" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="5" y="5" rx="2"/></svg>
+                    <span>Stop Camera</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Camera Viewport with Canvas Overlay & Hand Guide -->
+              <div class="camera-wrapper">
+                <video id="webcam-video" class="camera-video" playsinline autoplay muted></video>
+                <canvas id="landmark-canvas" class="camera-canvas"></canvas>
+                
+                <div class="camera-guide-overlay" id="camera-overlay">
+                  <div class="guide-box"></div>
+                  <div class="guide-text" id="camera-overlay-status">Camera Stopped &bull; Click Start Camera</div>
+                </div>
+
+                <div class="camera-placeholder" id="camera-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+                  <p>Webcam stream is inactive.<br>Click "Start Camera" above to grant camera permission and begin scanning.</p>
+                </div>
+              </div>
+
+              <!-- Real-time Recognition Banner -->
+              <div class="result-banner">
+                <div class="result-main">
+                  <span class="result-tag" id="cam-detection-status">Scanning for hand gestures...</span>
+                  <div class="result-sign" id="cam-result-sign">—</div>
+                  <div class="result-trans" id="cam-result-trans">Translation: —</div>
+                  <div class="result-pronounce" id="cam-result-pronounce"></div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
+                  <div class="confidence-bar-container">
+                    <div class="confidence-label">
+                      <span>Confidence</span>
+                      <span id="cam-confidence-val">0%</span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill" id="cam-confidence-fill"></div>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; gap: 8px;">
+                    <button class="btn btn-secondary btn-sm" id="cam-speak-btn" disabled>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                      <span>Speak</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Camera Controls & Stats -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Detection Controls</h3>
+                  <div class="card-subtitle">Runtime Parameters</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Auto-Speech Audio Playback</label>
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-main);">
+                  <input type="checkbox" id="cam-auto-speak" style="width: 16px; height: 16px;">
+                  <span>Speak translation when confidence &gt; 80%</span>
+                </label>
+              </div>
+
+              <div class="form-group" style="margin-top: 18px;">
+                <label class="form-label">Confidence Gate Threshold (<span id="conf-threshold-val">65%</span>)</label>
+                <input type="range" id="conf-threshold-slider" min="40" max="95" value="65" class="form-input" style="padding: 0;">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Inference Target Language</label>
+                <select class="form-select" id="cam-target-lang">
+                  <option value="ta">Tamil (தமிழ்)</option>
+                  <option value="en">English (US)</option>
+                </select>
+              </div>
+
+              <div style="background: var(--bg-surface); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-top: 20px;">
+                <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">Pipeline Telemetry</div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                  <span style="color: var(--text-muted);">Process Rate:</span>
+                  <span id="cam-fps" style="font-weight: 600; color: var(--accent-cyan);">0 FPS</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                  <span style="color: var(--text-muted);">Landmarks Extracted:</span>
+                  <span id="cam-landmarks-count" style="font-weight: 600;">0 / 21</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                  <span style="color: var(--text-muted);">Debounce Cooldown:</span>
+                  <span style="font-weight: 600;">1.5s per sign</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 3: IMAGE UPLOAD ================= -->
+        <section id="view-upload" class="view-section">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Upload Gesture Image</h3>
+                  <div class="card-subtitle">Supports PNG, JPG, JPEG, WEBP (Max 10MB)</div>
+                </div>
+              </div>
+
+              <div class="dropzone" id="upload-dropzone">
+                <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <h3>Drag & Drop sign gesture image here</h3>
+                <p>or click to browse from your computer</p>
+                <input type="file" id="image-file-input" accept="image/png,image/jpeg,image/webp" style="display: none;">
+                <button class="btn btn-secondary btn-sm" type="button" onclick="document.getElementById('image-file-input').click()">Choose File</button>
+              </div>
+
+              <!-- Selected Preview -->
+              <div id="image-preview-wrapper" style="display: none; margin-top: 18px;">
+                <div class="image-preview-box">
+                  <img id="selected-image-preview" src="" alt="Selected Preview">
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div id="image-info-text" style="font-size: 0.8rem; color: var(--text-muted);"></div>
+                  <button class="btn btn-cyan" id="detect-sign-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span>Detect Sign</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prediction Result Panel -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Prediction & Translation Result</h3>
+                  <div class="card-subtitle">Real Classifier Response & Confidence Score</div>
+                </div>
+              </div>
+
+              <div id="upload-empty-state" class="empty-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                <h4>No Image Analyzed</h4>
+                <p>Upload a hand gesture photo and click "Detect Sign" to run the recognition pipeline.</p>
+              </div>
+
+              <div id="upload-result-panel" style="display: none;">
+                <div class="result-banner" style="margin-top: 0; background: var(--bg-surface);">
+                  <div class="result-main">
+                    <span class="result-tag">Predicted Sign</span>
+                    <div class="result-sign" id="upload-res-sign">—</div>
+                    <div class="result-trans" id="upload-res-trans">Translation: —</div>
+                    <div class="result-pronounce" id="upload-res-pronounce"></div>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+                    <div class="confidence-bar-container">
+                      <div class="confidence-label">
+                        <span>Confidence</span>
+                        <span id="upload-confidence-val">0%</span>
+                      </div>
+                      <div class="progress-track">
+                        <div class="progress-fill" id="upload-confidence-fill"></div>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-secondary btn-sm" id="upload-speak-btn">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                      <span>Play Speech</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Hand Landmarks Status -->
+                <div style="margin-top: 20px; background: var(--bg-input); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                  <h4 style="font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main);">Extracted Feature Details</h4>
+                  <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 6px;">
+                    <div>Hand Presence: <span id="upload-hand-presence" style="color: var(--accent-emerald); font-weight: 600;">Detected (21 Landmarks)</span></div>
+                    <div>Dominant Hand: <span id="upload-handedness" style="color: var(--text-main); font-weight: 600;">Right</span></div>
+                    <div>Feature Normalization: <span style="color: var(--text-main);">Wrist translation invariant, scale normalized</span></div>
+                    <div>Database Log: <span id="upload-db-log-status" style="color: var(--accent-cyan);">Recorded to SQLite</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 4: DATASET MANAGER ================= -->
+        <section id="view-dataset" class="view-section">
+          <!-- Dataset Metrics Bar -->
+          <div class="grid-4">
+            <div class="stat-card">
+              <div class="stat-icon cyan">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" id="ds-total-images">0</div>
+                <div class="stat-label">Total Real Samples</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" id="ds-total-classes">0</div>
+                <div class="stat-label">Gesture Classes</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon emerald">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" id="ds-train-images">0</div>
+                <div class="stat-label">Train Partition</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon amber">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div>
+                <div class="stat-val" id="ds-val-images">0</div>
+                <div class="stat-label">Validation Partition</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- Upload Dataset ZIP Archive -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Upload Dataset ZIP Archive</h3>
+                  <div class="card-subtitle">Safe unpack into structured class directories</div>
+                </div>
+              </div>
+
+              <div class="dropzone" id="zip-dropzone">
+                <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M2 15h10"/><path d="m9 18 3-3-3-3"/></svg>
+                <h3>Upload Dataset .ZIP File</h3>
+                <p>Zip with subfolders like <code>A/</code>, <code>B/</code>, <code>HELLO/</code></p>
+                <input type="file" id="zip-file-input" accept=".zip" style="display: none;">
+                <button class="btn btn-secondary btn-sm" type="button" onclick="document.getElementById('zip-file-input').click()">Select ZIP</button>
+              </div>
+              <div id="zip-upload-status" style="margin-top: 10px; font-size: 0.82rem;"></div>
+            </div>
+
+            <!-- Upload Individual Images & Assign Class -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Add & Label Single Sample</h3>
+                  <div class="card-subtitle">Upload image directly into chosen sign class</div>
+                </div>
+              </div>
+
+              <form id="single-sample-form">
+                <div class="form-group">
+                  <label class="form-label">Sign / Gesture Class Name</label>
+                  <input type="text" id="sample-class-name" class="form-input" placeholder="e.g. HELLO, A, YES, THANKS" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Dataset Split</label>
+                  <select id="sample-split" class="form-select">
+                    <option value="train">Train (dataset/train/)</option>
+                    <option value="validation">Validation (dataset/validation/)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Choose Image File</label>
+                  <input type="file" id="sample-file-input" class="form-input" accept="image/png,image/jpeg,image/webp" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="save-sample-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                  <span>Save to Dataset</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Dataset Classes & Sample Gallery -->
+          <div class="card" style="margin-top: 24px;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Dataset Class Distribution</h3>
+                <div class="card-subtitle">Actual sample counts per sign stored on backend</div>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="export-manifest-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Export Manifest JSON</span>
+              </button>
+            </div>
+
+            <div class="class-chip-list" id="dataset-classes-chips">
+              <span style="color: var(--text-dim); font-size: 0.82rem;">No classes found in dataset. Upload samples above.</span>
+            </div>
+
+            <!-- Sample Gallery Browser -->
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-subtle); padding-top: 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h4 style="font-size: 0.95rem; font-weight: 600;">Sample Image Gallery</h4>
+                <div style="display: flex; gap: 8px;">
+                  <select id="gallery-class-filter" class="form-select" style="width: auto; padding: 4px 10px; font-size: 0.8rem;">
+                    <option value="">All Classes</option>
+                  </select>
+                  <button class="btn btn-secondary btn-sm" id="refresh-gallery-btn">Refresh</button>
+                </div>
+              </div>
+
+              <div class="sample-gallery" id="dataset-sample-gallery">
+                <div class="empty-state" style="grid-column: 1 / -1;">
+                  <p>No sample images stored. Upload single photos or a ZIP archive to populate.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 5: TRANSLATION ================= -->
+        <section id="view-translation" class="view-section">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Interactive Sign & Text Translator</h3>
+                  <div class="card-subtitle">English &harr; Tamil Real Translation</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Input Word or Sign Gloss</label>
+                <textarea id="trans-input-text" class="form-textarea" rows="3" placeholder="Enter word or sign name (e.g. HELLO, THANK YOU, WATER, YES)..."></textarea>
+              </div>
+
+              <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 16px;">
+                <select id="trans-target-lang" class="form-select" style="flex: 1;">
+                  <option value="ta">Translate to Tamil (தமிழ்)</option>
+                  <option value="en">Translate to English</option>
+                </select>
+                <button class="btn btn-primary" id="run-trans-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+                  <span>Translate</span>
+                </button>
+              </div>
+
+              <!-- Output Box -->
+              <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px;">
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 6px;">Translated Output</div>
+                <div id="trans-output-text" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-cyan);">—</div>
+                <div id="trans-pronunciation-text" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; font-style: italic;"></div>
+                
+                <div style="margin-top: 14px; display: flex; gap: 8px;">
+                  <button class="btn btn-secondary btn-sm" id="trans-speak-btn" disabled>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    <span>Play Audio</span>
+                  </button>
+                  <button class="btn btn-secondary btn-sm" id="trans-stop-btn" disabled>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="5" y="5" rx="2"/></svg>
+                    <span>Stop Audio</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Indian Sign Language Verified Glossary Table -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">ISL Gesture Glossary</h3>
+                  <div class="card-subtitle">Verified Sign Semantics & Tamil Vocabulary</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" id="glossary-search" class="form-input" placeholder="Search signs (e.g. Hello, Water, Thank You)...">
+              </div>
+
+              <div class="table-responsive" style="max-height: 380px; overflow-y: auto;">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Sign Gloss</th>
+                      <th>English Meaning</th>
+                      <th>Tamil (தமிழ்)</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="glossary-table-body">
+                    <!-- Loaded dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 6: HISTORY ================= -->
+        <section id="view-history" class="view-section">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Recognition Event History</h3>
+                <div class="card-subtitle">Persistent SQLite Database Record</div>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <select id="history-source-filter" class="form-select" style="width: auto; padding: 6px 12px; font-size: 0.8rem;">
+                  <option value="">All Sources</option>
+                  <option value="camera">Camera Only</option>
+                  <option value="upload">Upload Only</option>
+                  <option value="manual">Manual Entry Only</option>
+                </select>
+                <button class="btn btn-danger btn-sm" id="clear-history-btn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  <span>Clear All History</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Timestamp</th>
+                    <th>Source</th>
+                    <th>Recognized Sign</th>
+                    <th>Confidence</th>
+                    <th>Target Lang</th>
+                    <th>Translation</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="history-table-body">
+                  <tr>
+                    <td colspan="8" class="empty-state">Loading recognition history...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 7: MODEL STATUS ================= -->
+        <section id="view-model" class="view-section">
+          <div class="grid-2">
+            <!-- Model Diagnostics Card -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Model Diagnostics & State</h3>
+                  <div class="card-subtitle">MediaPipe Hand Landmarks + Scikit-Learn Pipeline</div>
+                </div>
+                <div class="status-pill warning" id="model-diag-badge">
+                  <span class="status-dot"></span>
+                  <span id="model-diag-badge-text">Checking...</span>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+                  <span style="color: var(--text-muted);">Architecture:</span>
+                  <span style="font-weight: 600;" id="model-diag-arch">RandomForestClassifier</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+                  <span style="color: var(--text-muted);">Feature Dimension:</span>
+                  <span style="font-weight: 600;">63 Normalized 3D Coordinates</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+                  <span style="color: var(--text-muted);">Trained Date:</span>
+                  <span style="font-weight: 600;" id="model-diag-date">—</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+                  <span style="color: var(--text-muted);">Validation Accuracy:</span>
+                  <span style="font-weight: 700; color: var(--accent-emerald);" id="model-diag-acc">—</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+                  <span style="color: var(--text-muted);">Weighted F1-Score:</span>
+                  <span style="font-weight: 700; color: var(--accent-cyan);" id="model-diag-f1">—</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Training Samples:</span>
+                  <span style="font-weight: 600;" id="model-diag-samples">0</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 18px;">
+                <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">Supported Gesture Classes:</div>
+                <div class="class-chip-list" id="model-supported-classes-list">
+                  <span style="color: var(--text-dim); font-size: 0.82rem;">Model not loaded</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- One-Click Train Model Panel -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Train Classifier from Dataset</h3>
+                  <div class="card-subtitle">Runs landmark feature extraction & model fitting</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Number of Estimator Trees</label>
+                <input type="number" id="train-trees" class="form-input" value="100" min="20" max="300">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Max Tree Depth</label>
+                <input type="number" id="train-depth" class="form-input" value="15" min="5" max="50">
+              </div>
+
+              <div style="margin-bottom: 18px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">
+                  <span id="train-progress-step">Training Pipeline Status: Idle</span>
+                  <span id="train-progress-pct">0%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="train-progress-bar"></div>
+                </div>
+              </div>
+
+              <button class="btn btn-cyan" id="start-train-btn" style="width: 100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Train Model Now</span>
+              </button>
+
+              <!-- Live Training Output Logs -->
+              <div style="margin-top: 18px;">
+                <div style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 6px;">Execution Terminal Logs</div>
+                <div class="terminal-window" id="training-terminal-logs">
+                  <div class="log-entry">[Ready] Waiting to start training...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 8: SETTINGS ================= -->
+        <section id="view-settings" class="view-section">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Application Preferences</h3>
+                  <div class="card-subtitle">User Interface & Audio Settings</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Default Target Translation Language</label>
+                <select class="form-select" id="settings-default-lang">
+                  <option value="ta">Tamil (தமிழ்)</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Text-to-Speech Speech Rate</label>
+                <input type="range" id="settings-speech-rate" min="0.5" max="1.5" step="0.1" value="1.0" class="form-input" style="padding: 0;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted);">
+                  <span>Slow (0.5x)</span>
+                  <span id="speech-rate-val">Normal (1.0x)</span>
+                  <span>Fast (1.5x)</span>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 16px;">
+                <label class="form-label">TTS Test</label>
+                <button class="btn btn-secondary btn-sm" id="test-tts-btn">Test Speech Synthesis Audio</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">System & Environment Info</h3>
+                  <div class="card-subtitle">Runtime Configuration</div>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem;" id="system-info-list">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
+                  <span style="color: var(--text-muted);">Operating System:</span>
+                  <span id="sys-os" style="font-weight: 600;">Windows</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
+                  <span style="color: var(--text-muted);">Python Engine:</span>
+                  <span id="sys-python" style="font-weight: 600;">Python 3.13</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
+                  <span style="color: var(--text-muted);">Backend Framework:</span>
+                  <span style="font-weight: 600;">Flask 3.1.3 (Modular Architecture)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
+                  <span style="color: var(--text-muted);">Hand Landmark Engine:</span>
+                  <span style="font-weight: 600;">MediaPipe Tasks (HandLandmarker)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
+                  <span style="color: var(--text-muted);">Classifier Framework:</span>
+                  <span style="font-weight: 600;">Scikit-Learn RandomForestClassifier</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Database:</span>
+                  <span style="font-weight: 600;">SQLite (signai.db)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download Complete Website Card -->
+            <div class="card" style="margin-top: 20px; grid-column: 1 / -1;">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Download Website & Offline Application</h3>
+                  <div class="card-subtitle">Complete Self-Contained Source Code Package</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+                Download the complete working project as a <code>.zip</code> archive. Includes all frontend UI files, Flask backend routes and AI services, trained models, MediaPipe <code>hand_landmarker.task</code>, 575 labelled sign images, SQLite database, and one-click launch scripts.
+              </p>
+              <a href="/api/download-project" class="btn btn-primary" download="SignAI_FullStack_Website.zip" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download SignAI (.ZIP)</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/app.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/upload.js"></script>
+  <script src="js/dataset.js"></script>
+  <script src="js/translation.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/model_status.js"></script>
+</body>
+</html>

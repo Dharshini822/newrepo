@@ -1,0 +1,77 @@
+/* ===================================================================
+   SignAI — Responsive Media Queries
+   =================================================================== */
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 70px;
+  }
+
+  .brand-info, .brand-tagline, .nav-text, .sidebar-footer {
+    display: none;
+  }
+
+  .brand-section {
+    justify-content: center;
+    padding: 18px 0;
+  }
+
+  .nav-link {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .top-header {
+    padding: 0 16px;
+  }
+
+  .content-area {
+    padding: 16px;
+  }
+
+  .grid-4, .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .result-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .camera-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-right {
+    gap: 8px;
+  }
+
+  .page-title {
+    font-size: 1.05rem;
+  }
+
+  .status-pill {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
